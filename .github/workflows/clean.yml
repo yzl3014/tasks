@@ -1,9 +1,9 @@
-name: "Hit a webhook"
- 
+name: "user list clean"
 on:
   push:
-    tags:
-      - '**'
+  schedule:
+  # 定时任务
+    - cron: '0 20 * * *'
  
 jobs:
   run-updater:
@@ -11,4 +11,4 @@ jobs:
     steps:
     - name: REST API with curl
       run: |
-        curl -X GET "https://example.com/api/v2/endpoint"
+        curl -X GET "https://pwb.yuanzj.top/api/actions.php?name=clean"
